@@ -20,11 +20,11 @@ gaps bottom 35
 # autostart
 exec --no-startup-id xsettingsd &
 exec --no-startup-id picom -b
+exec_always --no-startup-id kitty -e $HOME/.screenlayout/my-layout.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id "setxkbmap -model pc105 -layout us,de -option grp:alt_shift_toggle"
-#exec ~/.screenlayout/layout.sh
 exec --no-startup-id nitrogen --restore; sleep 1;
-#exec --no-startup-id ckb-next
+exec --no-startup-id ckb-next --background
 #exec ~/.screenlayout/default.sh
 # Menu
 bindsym $mod+d exec rofi -theme glass -show-icons -lines 6 -width 60 -location 0 -show drun -columns
@@ -189,11 +189,21 @@ bindsym $mod+Control+d move workspace to output DP-4
 # #2f343f
 
 # set colors
-set $bg-color            #000000
-set $inactive-bg-color   #000000
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+#set $bg-color            #000000
+#set $inactive-bg-color   #000000
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
 
 focus_on_window_activation focus
 
